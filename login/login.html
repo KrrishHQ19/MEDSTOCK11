@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MedStock - Secure Login</title>
+    <link rel="stylesheet" href="/inventory/style.css">
+    <style>
+        .login-body { background: #fdf2f7; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; font-family: sans-serif; }
+        .login-card { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); width: 380px; text-align: center; }
+        .login-card h2 { color: #ff6fa3; margin-bottom: 5px; }
+        .tabs { display: flex; margin: 20px 0; border-bottom: 1px solid #eee; }
+        .tab { flex: 1; padding: 10px; cursor: pointer; color: #888; font-weight: bold; }
+        .tab.active { color: #ff6fa3; border-bottom: 2px solid #ff6fa3; }
+        input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
+        .btn { width: 100%; padding: 12px; background: #ff6fa3; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 10px; }
+        .admin-section { margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; }
+        .admin-section h3 { color: #d63384; font-size: 16px; margin-bottom: 15px; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body class="login-body">
+    <div class="login-card">
+        <h2>🏥 MedStock</h2>
+        <p>Secure access to medical inventory system</p>
+        
+        <div class="tabs">
+            <div id="signInTab" class="tab active" onclick="switchTab('signin')">Sign In</div>
+            <div id="signUpTab" class="tab" onclick="switchTab('signup')">Sign Up</div>
+        </div>
+
+        <div id="signinForm">
+            <input type="text" id="siUser" placeholder="Username">
+            <input type="password" id="siPass" placeholder="Password">
+            <button class="btn" onclick="handleAuth('signin')">Sign In</button>
+        </div>
+
+        <div id="signupForm" class="hidden">
+            <input type="text" id="suUser" placeholder="Username">
+            <input type="password" id="suPass" placeholder="Password">
+            <input type="password" id="suConfirm" placeholder="Confirm Password">
+            <button class="btn" onclick="handleAuth('signup')">Create Account</button>
+        </div>
+
+        <div class="admin-section">
+            <h3>Admin Access</h3>
+            <input type="text" id="adUser" placeholder="Admin Username">
+            <input type="password" id="adPass" placeholder="Admin Password">
+            <button class="btn" style="background: #d63384;" onclick="handleAuth('admin')">Admin Login</button>
+        </div>
+    </div>
+
+    <script>
+       // --- TAB SWITCHING ---
+function switchTab(type) {
+    document.getElementById('signinForm').classList.toggle('hidden', type === 'signup');
+    document.getElementById('signupForm').classList.toggle('hidden', type === 'signin');
+    document.getElementById('signInTab').classList.toggle('active', type === 'signin');
+    document.getElementById('signUpTab').classList.toggle('active', type === 'signup');
+}
+
+// --- AUTHENTICATION HANDLING ---
+async function handleAuth(type) {
+    let payload = {};
+    
+    // Get values based on which section is active
+    if (type === 'admin') {
+        payload = { 
+            username: document.getElementById('adUser').value, 
+            password: document.getElementById('adPass').value 
+        };
+    } else if (type === 'signin') {
+        payload = { 
+            username: document.getElementById('siUser').value, 
+            password: document.getElementById('siPass').value 
+        };
+    } else {
+        if (document.getElementById('suPass').value !== document.getElementById('suConfirm').value) {
+            return alert("Passwords don't match");
+        }
+        payload = { 
+            username: document.getElementById('suUser').value, 
+            password: document.getElementById('suPass').value 
+        };
+    }
+
+    const route = (type === 'signup') ? '/api/signup' : '/api/signin';
+    
+    try {
+        const res = await fetch(route, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+
+        if (data.success) {
+            if (type === 'signup') {
+                alert("Account created! Please sign in.");
+                switchTab('signin');
+            } else {
+                // Save session and move to dashboard
+                localStorage.setItem('medstock_user', JSON.stringify(data.user));
+                window.location.href = '/inventory/';
+            }
+        } else {
+            alert(data.error || "Login failed");
+        }
+    } catch (err) {
+        console.error("Auth Error:", err);
+    }
+}
+      
+    </script>
+</body>
+</html>

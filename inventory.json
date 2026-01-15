@@ -1,0 +1,443 @@
+[
+    {
+        "id": "1",
+        "name": "Surgical Gloves (Large)",
+        "category": "PPE",
+        "location": "Ward B Storage",
+        "qty": "85",
+        "reorder": "150",
+        "expiry": "2026-05-20"
+    },
+    {
+        "id": "2",
+        "name": "N95 Masks",
+        "category": "PPE",
+        "location": "Central Storage",
+        "qty": "250",
+        "reorder": "500",
+        "expiry": "2025-01-01"
+    },
+    {
+        "id": "3",
+        "name": "Blood Glucose Test Strips",
+        "category": "Laboratory",
+        "location": "Lab Storage",
+        "qty": "120",
+        "reorder": "100",
+        "expiry": "2026-11-20"
+    },
+    {
+        "id": "4",
+        "name": "Amoxicillin 250mg",
+        "category": "Medication - Oral",
+        "location": "Pharmacy A",
+        "qty": "300",
+        "reorder": "100",
+        "expiry": "2025-08-15"
+    },
+    {
+        "id": "5",
+        "name": "Hand Sanitizer 500ml",
+        "category": "PPE",
+        "location": "Ward A Supply",
+        "qty": "45",
+        "reorder": "60",
+        "expiry": "2027-03-10"
+    },
+    {
+        "id": "6",
+        "name": "Insulin Syringes",
+        "category": "Surgical Supplies",
+        "location": "Ward B Storage",
+        "qty": "1000",
+        "reorder": "500",
+        "expiry": "2027-01-01"
+    },
+    {
+        "id": "7",
+        "name": "Saline Solution 0.9%",
+        "category": "Medication - Injectable",
+        "location": "Pharmacy B",
+        "qty": "20",
+        "reorder": "50",
+        "expiry": "2025-02-14"
+    },
+    {
+        "id": "8",
+        "name": "Scalpel Blades #11",
+        "category": "Surgical Supplies",
+        "location": "OR Storage",
+        "qty": "200",
+        "reorder": "50",
+        "expiry": "2028-06-30"
+    },
+    {
+        "id": "9",
+        "name": "Adhesive Bandages",
+        "category": "Surgical Supplies",
+        "location": "Central Storage",
+        "qty": "500",
+        "reorder": "200",
+        "expiry": "2026-12-01"
+    },
+    {
+        "id": "10",
+        "name": "Adrenaline 1mg/ml",
+        "category": "Medication - Injectable",
+        "location": "Fridge 1",
+        "qty": "15",
+        "reorder": "20",
+        "expiry": "2025-10-10"
+    },
+    {
+        "id": "11",
+        "name": "Biohazard Bags",
+        "category": "PPE",
+        "location": "Waste Management",
+        "qty": "300",
+        "reorder": "100",
+        "expiry": "2028-01-01"
+    },
+    {
+        "id": "12",
+        "name": "Metformin 500mg",
+        "category": "Medication - Oral",
+        "location": "Pharmacy A",
+        "qty": "600",
+        "reorder": "200",
+        "expiry": "2026-04-12"
+    },
+    {
+        "id": "13",
+        "name": "Albuterol 100mcg",
+        "category": "Medication - Oral",
+        "location": "Pharmacy A",
+        "qty": "50",
+        "reorder": "100",
+        "expiry": "2025-03-18"
+    },
+    {
+        "id": "14",
+        "name": "Lisinopril 10mg",
+        "category": "Medication - Oral",
+        "location": "Pharmacy B",
+        "qty": "450",
+        "reorder": "50",
+        "expiry": "2027-05-15"
+    },
+    {
+        "id": "15",
+        "name": "Ceftriaxone 1g Injection",
+        "category": "Medication - Injectable",
+        "location": "Fridge 2",
+        "qty": "80",
+        "reorder": "40",
+        "expiry": "2025-09-22"
+    },
+    {
+        "id": "16",
+        "name": "Heparin 5000 Units",
+        "category": "Medication - Injectable",
+        "location": "Fridge 1",
+        "qty": "25",
+        "reorder": "30",
+        "expiry": "2025-05-10"
+    },
+    {
+        "id": "17",
+        "name": "Diazepam 5mg/ml",
+        "category": "Medication - Injectable",
+        "location": "Narcotics Safe",
+        "qty": "15",
+        "reorder": "20",
+        "expiry": "2025-02-12"
+    },
+    {
+        "id": "18",
+        "name": "Gauze Pads 4x4",
+        "category": "Surgical Supplies",
+        "location": "Ward B Storage",
+        "qty": "1000",
+        "reorder": "500",
+        "expiry": "2029-01-01"
+    },
+    {
+        "id": "19",
+        "name": "Alcohol Prep Pads",
+        "category": "Surgical Supplies",
+        "location": "Central Storage",
+        "qty": "2000",
+        "reorder": "500",
+        "expiry": "2026-06-15"
+    },
+    {
+        "id": "20",
+        "name": "Ibuprofen 400mg",
+        "category": "Medication - Oral",
+        "location": "Pharmacy A",
+        "qty": "800",
+        "reorder": "200",
+        "expiry": "2026-11-30"
+    },
+    {
+        "id": "21",
+        "name": "Paracetamol 500mg",
+        "category": "Medication - Oral",
+        "location": "Pharmacy B",
+        "qty": "1500",
+        "reorder": "500",
+        "expiry": "2027-02-28"
+    },
+    {
+        "id": "22",
+        "name": "Surgical Masks (Tie)",
+        "category": "PPE",
+        "location": "Central Storage",
+        "qty": "1200",
+        "reorder": "500",
+        "expiry": "2025-12-31"
+    },
+    {
+        "id": "23",
+        "name": "Cotton Swabs",
+        "category": "Surgical Supplies",
+        "location": "Ward A Supply",
+        "qty": "500",
+        "reorder": "100",
+        "expiry": "2028-09-10"
+    },
+    {
+        "id": "24",
+        "name": "Urine Sample Cups",
+        "category": "Laboratory",
+        "location": "Lab Storage",
+        "qty": "200",
+        "reorder": "50",
+        "expiry": "2030-01-01"
+    },
+    {
+        "id": "25",
+        "name": "IV Catheters 20G",
+        "category": "Surgical Supplies",
+        "location": "Ward B Storage",
+        "qty": "150",
+        "reorder": "100",
+        "expiry": "2026-03-15"
+    },
+    {
+        "id": "26",
+        "name": "Face Shields",
+        "category": "PPE",
+        "location": "Central Storage",
+        "qty": "75",
+        "reorder": "100",
+        "expiry": "2027-05-10"
+    },
+    {
+        "id": "27",
+        "name": "Disposable Gowns",
+        "category": "PPE",
+        "location": "Ward B Storage",
+        "qty": "40",
+        "reorder": "100",
+        "expiry": "2025-11-20"
+    },
+    {
+        "id": "28",
+        "name": "Hydrogen Peroxide",
+        "category": "Medication - Oral",
+        "location": "Ward A Supply",
+        "qty": "12",
+        "reorder": "24",
+        "expiry": "2026-01-01"
+    },
+    {
+        "id": "29",
+        "name": "Atropine Injection",
+        "category": "Medication - Injectable",
+        "location": "Fridge 1",
+        "qty": "10",
+        "reorder": "10",
+        "expiry": "2025-06-05"
+    },
+    {
+        "id": "30",
+        "name": "Fentanyl Patches",
+        "category": "Medication - Oral",
+        "location": "Narcotics Safe",
+        "qty": "5",
+        "reorder": "10",
+        "expiry": "2025-04-12"
+    },
+    {
+        "id": "31",
+        "name": "Omeprazole 20mg",
+        "category": "Medication - Oral",
+        "location": "Pharmacy A",
+        "qty": "400",
+        "reorder": "100",
+        "expiry": "2026-08-20"
+    },
+    {
+        "id": "33",
+        "name": "Surgical Drape",
+        "category": "Surgical Supplies",
+        "location": "OR Storage",
+        "qty": "50",
+        "reorder": "20",
+        "expiry": "2028-02-14"
+    },
+    {
+        "id": "34",
+        "name": "Thermometer Covers",
+        "category": "Surgical Supplies",
+        "location": "Ward A Supply",
+        "qty": "500",
+        "reorder": "200",
+        "expiry": "2030-05-01"
+    },
+    {
+        "id": "35",
+        "name": "Aspirin 81mg",
+        "category": "Medication - Oral",
+        "location": "Pharmacy A",
+        "qty": "1000",
+        "reorder": "200",
+        "expiry": "2027-03-30"
+    },
+    {
+        "id": "36",
+        "name": "Prednisone 5mg",
+        "category": "Medication - Oral",
+        "location": "Pharmacy B",
+        "qty": "200",
+        "reorder": "50",
+        "expiry": "2026-07-15"
+    },
+    {
+        "id": "37",
+        "name": "Morphine 10mg/ml",
+        "category": "Medication - Injectable",
+        "location": "Narcotics Safe",
+        "qty": "8",
+        "reorder": "15",
+        "expiry": "2025-03-01"
+    },
+    {
+        "id": "38",
+        "name": "Ketamine Injection",
+        "category": "Medication - Injectable",
+        "location": "Fridge 2",
+        "qty": "12",
+        "reorder": "10",
+        "expiry": "2025-11-10"
+    },
+    {
+        "id": "39",
+        "name": "Oxygen Masks (Adult)",
+        "category": "Surgical Supplies",
+        "location": "Central Storage",
+        "qty": "40",
+        "reorder": "50",
+        "expiry": "2028-01-01"
+    },
+    {
+        "id": "40",
+        "name": "Nebulizer Kits",
+        "category": "Surgical Supplies",
+        "location": "Ward B Storage",
+        "qty": "25",
+        "reorder": "30",
+        "expiry": "2027-06-15"
+    },
+    {
+        "id": "41",
+        "name": "Latex-Free Gloves (M)",
+        "category": "PPE",
+        "location": "Ward A Supply",
+        "qty": "400",
+        "reorder": "500",
+        "expiry": "2026-04-20"
+    },
+    {
+        "id": "42",
+        "name": "Biohazard Sharps Container",
+        "category": "PPE",
+        "location": "Waste Management",
+        "qty": "20",
+        "reorder": "20",
+        "expiry": "2029-01-01"
+    },
+    {
+        "id": "43",
+        "name": "Warfarin 5mg",
+        "category": "Medication - Oral",
+        "location": "Pharmacy A",
+        "qty": "150",
+        "reorder": "50",
+        "expiry": "2026-02-12"
+    },
+    {
+        "id": "44",
+        "name": "Simvastatin 20mg",
+        "category": "Medication - Oral",
+        "location": "Pharmacy B",
+        "qty": "300",
+        "reorder": "100",
+        "expiry": "2026-10-18"
+    },
+    {
+        "id": "45",
+        "name": "Ventolin Inhaler",
+        "category": "Medication - Oral",
+        "location": "Pharmacy A",
+        "qty": "35",
+        "reorder": "50",
+        "expiry": "2025-05-25"
+    },
+    {
+        "id": "46",
+        "name": "Glucagon Emergency Kit",
+        "category": "Medication - Injectable",
+        "location": "Fridge 1",
+        "qty": "10",
+        "reorder": "5",
+        "expiry": "2025-08-01"
+    },
+    {
+        "id": "47",
+        "name": "Furosemide 40mg",
+        "category": "Medication - Oral",
+        "location": "Pharmacy B",
+        "qty": "250",
+        "reorder": "100",
+        "expiry": "2027-01-12"
+    },
+    {
+        "id": "48",
+        "name": "Potassium Chloride",
+        "category": "Medication - Injectable",
+        "location": "Fridge 2",
+        "qty": "40",
+        "reorder": "20",
+        "expiry": "2026-09-30"
+    },
+    {
+        "id": "49",
+        "name": "Surgical Tape 1 inch",
+        "category": "Surgical Supplies",
+        "location": "Central Storage",
+        "qty": "100",
+        "reorder": "50",
+        "expiry": "2029-05-15"
+    },
+    {
+        "id": "50",
+        "name": "Wound Dressing (Non-Stick)",
+        "category": "Surgical Supplies",
+        "location": "Ward B Storage",
+        "qty": "300",
+        "reorder": "100",
+        "expiry": "2028-12-01"
+    }
+]

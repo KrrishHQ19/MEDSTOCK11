@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MedStock - Inventory Dashboard</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <nav class="topnav">
+        <h2>🏥 MedStock</h2>
+        <nav>
+            <span id="welcomeUser" style="margin-right:15px; font-weight:bold; color:white;"></span>
+            <button id="logoutBtn" style="background:#d63384; color:white; border:none; padding:8px 15px; cursor:pointer; border-radius:5px;">Logout</button>
+        </nav>
+    </nav>
+
+    <div class="main">
+        <header class="header">
+            <h1>Inventory Items</h1>
+            <p>Real-time tracking and management of medical supplies</p>
+        </header>
+
+        <div class="summary-cards">
+            <div class="card blue-border">
+                <span class="card-label">TOTAL ITEMS IN STOCK</span>
+                <p class="card-value" id="totalStockDisplay">0</p>
+            </div>
+            <div class="card yellow-border">
+                <span class="card-label">LOW STOCK ALERTS</span>
+                <p class="card-value" id="lowStockDisplay">0</p>
+            </div>
+            <div class="card red-border">
+                <span class="card-label">EXPIRING SOON</span>
+                <p class="card-value" id="expiringSoonDisplay">0</p>
+            </div>
+            <div class="card green-border">
+                <span class="card-label">CATEGORIES</span>
+                <p class="card-value" id="categoryDisplay">0</p>
+            </div>
+        </div>
+
+        <section class="controls-section">
+            <input type="text" placeholder="Search medicines or categories..." id="searchInput">
+            <button id="addBtn">Add Item</button>
+        </section>
+
+        <div class="table-section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ITEM NAME</th><th>CATEGORY</th><th>LOCATION</th>
+                        <th>STOCK</th><th>STATUS</th><th>EXPIRY</th>
+                        <th>DATE</th><th>REORDER</th><th>ACTIONS</th>
+                    </tr>
+                </thead>
+                <tbody id="inventoryTableBody"></tbody>
+            </table>
+            <div id="loadingIndicator" style="text-align:center; padding:20px;">Loading data...</div>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>

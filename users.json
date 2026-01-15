@@ -1,0 +1,37 @@
+[
+    {
+        "username": "krrish",
+        "password": "krrish123",
+        "role": "user"
+    },
+    {
+        "username": "krrish1",
+        "password": "krrish123",
+        "role": "user"
+    },
+    {
+        "username": "krrish12",
+        "password": "krrish123",
+        "role": "user"
+    },
+    {
+        "username": "sudiksha12",
+        "password": "sudiksha12",
+        "role": "user"
+    },
+    {
+        "username": "sudiksha21",
+        "password": "sudiksha21",
+        "role": "user"
+    },
+    {
+        "username": "kushal12",
+        "password": "kushal12",
+        "role": "user"
+    },
+    {
+        "username": "krrish1234",
+        "password": "krrish123",
+        "role": "user"
+    }
+]
