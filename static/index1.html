@@ -60,7 +60,45 @@
     </div>
 
     <div id="modal" class="modal">
+        <div class="modal-content">
+            <h2 id="modalTitle">Add New Item</h2>
+            <input type="hidden" id="itemId">
+            
+            <label>Item Name</label>
+            <input type="text" id="itemName" placeholder="e.g., Surgical Gloves">
+            
+            <label>Category</label>
+            <select id="itemCategory">
+                <option value="PPE">PPE</option>
+                <option value="Surgical Supplies">Surgical Supplies</option>
+                <option value="Medication - Oral">Medication - Oral</option>
+                <option value="Medication - Injectable">Medication - Injectable</option>
+                <option value="Laboratory">Laboratory</option>
+            </select>
+            
+            <label>Location</label>
+            <input type="text" id="itemLocation" placeholder="e.g., Ward A">
+            
+            <div style="display:flex; gap:10px;">
+                <div style="flex:1">
+                    <label>Quantity</label>
+                    <input type="number" id="itemQty" placeholder="0">
+                </div>
+                <div style="flex:1">
+                    <label>Reorder Level</label>
+                    <input type="number" id="itemReorder" placeholder="10">
+                </div>
+            </div>
+
+            <label>Expiry Date</label>
+            <input type="date" id="itemExpiry">
+
+            <div class="modal-actions">
+                <button class="cancel-btn" onclick="closeModal()">Cancel</button>
+                <button class="save-btn" onclick="saveItem()">Save Item</button>
+            </div>
         </div>
+    </div>
 
     <script src="/script.js"></script>
 </body>

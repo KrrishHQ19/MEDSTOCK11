@@ -14,21 +14,18 @@ const tableBody = document.getElementById("inventoryTableBody");
 const loadingIndicator = document.getElementById("loadingIndicator");
 const inventoryTable = document.getElementById("inventoryTable");
 const searchInput = document.getElementById("searchInput");
+const addBtn = document.getElementById("addBtn");
+const logoutBtn = document.getElementById("logoutBtn");
 
-let allLocalData = []; // Store the 50 test items here
+let allLocalData = []; 
 
-/**
- * SEARCH LOGIC
- */
+// --- SEARCH LOGIC ---
 function handleSearch() {
     const term = searchInput.value.toLowerCase().trim();
-    
-    // If search is empty, show all data
     if (term === "") {
         renderTable(allLocalData);
         return;
     }
-
     const filtered = allLocalData.filter(item => {
         return (
             item.name.toLowerCase().includes(term) || 
@@ -36,7 +33,6 @@ function handleSearch() {
             item.location.toLowerCase().includes(term)
         );
     });
-
     renderTable(filtered);
 }
 
@@ -47,9 +43,7 @@ function daysUntilExpiry(expiryDate) {
     return Math.ceil((expiry - today) / (1000 * 60 * 60 * 24));
 }
 
-/**
- * TABLE RENDERING
- */
+// --- TABLE RENDERING ---
 function renderItemRow(item) {
     const daysLeft = daysUntilExpiry(item.expiry);
     
@@ -90,12 +84,12 @@ function renderTable(items) {
     }
 }
 
+// --- API FUNCTIONS ---
 async function fetchInventory() {
     try {
         const res = await fetch('/api/inventory');
         allLocalData = await res.json();
         
-        // Hide loading and show table immediately
         if (loadingIndicator) loadingIndicator.style.display = 'none';
         if (inventoryTable) inventoryTable.style.display = 'table';
         
@@ -105,8 +99,8 @@ async function fetchInventory() {
         console.error("Load error:", e);
     }
 }
+
 function updateSummaryCards(items) {
-    // 1. Calculate the values
     const total = items.length;
     const lowStock = items.filter(i => Number(i.qty) < Number(i.reorder)).length;
     const expiring = items.filter(i => {
@@ -115,38 +109,92 @@ function updateSummaryCards(items) {
     }).length;
     const categories = new Set(items.map(i => i.category)).size;
 
-    // 2. Update the HTML using the CORRECT IDs from your index1.html
-    if (document.getElementById('totalStockDisplay')) {
-        document.getElementById('totalStockDisplay').textContent = total;
-    }
-    if (document.getElementById('lowStockDisplay')) {
-        document.getElementById('lowStockDisplay').textContent = lowStock;
-    }
-    if (document.getElementById('expiringSoonDisplay')) {
-        document.getElementById('expiringSoonDisplay').textContent = expiring;
-    }
-    if (document.getElementById('categoryDisplay')) {
-        document.getElementById('categoryDisplay').textContent = categories;
-    }
+    if (document.getElementById('totalStockDisplay')) document.getElementById('totalStockDisplay').textContent = total;
+    if (document.getElementById('lowStockDisplay')) document.getElementById('lowStockDisplay').textContent = lowStock;
+    if (document.getElementById('expiringSoonDisplay')) document.getElementById('expiringSoonDisplay').textContent = expiring;
+    if (document.getElementById('categoryDisplay')) document.getElementById('categoryDisplay').textContent = categories;
+}
+
+// --- DELETE FUNCTION ---
+async function deleteItem(id) {
+    if(!confirm("Are you sure you want to delete this item?")) return;
+    
+    await fetch(`/api/inventory/${id}`, { method: 'DELETE' });
+    fetchInventory();
 }
 
 // --- INITIALIZE ---
-if (searchInput) {
-    searchInput.addEventListener('input', handleSearch);
-}
-
-// Permissions Check
-const addBtn = document.getElementById("addBtn");
+if (searchInput) searchInput.addEventListener('input', handleSearch);
 if (addBtn && !isAdmin) addBtn.style.display = 'none';
-// --- LOGOUT LOGIC ---
-const logoutBtn = document.getElementById("logoutBtn");
-
 if (logoutBtn) {
     logoutBtn.onclick = () => {
-        console.log("Logging out..."); // Debugging check
-        localStorage.removeItem('medstock_user'); // Clear the session
-        window.location.href = "/"; // Redirect to login
+        localStorage.removeItem('medstock_user');
+        window.location.href = "/";
     };
+}
+
+// --- MODAL & FORM LOGIC ---
+const myModal = document.getElementById("modal"); // Renamed to avoid conflict
+
+// 1. Open Modal when Add Button is clicked
+if (addBtn) {
+    addBtn.addEventListener('click', () => {
+        // Clear form
+        document.getElementById('itemId').value = '';
+        document.getElementById('itemName').value = '';
+        document.getElementById('itemQty').value = '';
+        document.getElementById('itemReorder').value = '';
+        document.getElementById('itemLocation').value = '';
+        document.getElementById('itemExpiry').value = '';
+        
+        if(document.getElementById('modalTitle')) document.getElementById('modalTitle').innerText = "Add New Item";
+        if(myModal) myModal.style.display = 'flex';
+    });
+}
+
+// 2. Close Modal function
+function closeModal() {
+    if(myModal) myModal.style.display = 'none';
+}
+
+// 3. Close if user clicks outside
+window.onclick = function(event) {
+    if (event.target === myModal) {
+        closeModal();
+    }
+}
+
+// 4. Save Item Function
+async function saveItem() {
+    const item = {
+        name: document.getElementById('itemName').value,
+        category: document.getElementById('itemCategory').value,
+        location: document.getElementById('itemLocation').value,
+        qty: document.getElementById('itemQty').value,
+        reorder: document.getElementById('itemReorder').value,
+        expiry: document.getElementById('itemExpiry').value
+    };
+
+    if (!item.name || !item.qty) return alert("Please fill in required fields");
+
+    try {
+        const res = await fetch('/api/inventory', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(item)
+        });
+        
+        const data = await res.json();
+        if (data.success) {
+            closeModal();
+            fetchInventory(); 
+        } else {
+            alert("Error saving item");
+        }
+    } catch (err) {
+        console.error(err);
+        alert("Failed to save");
+    }
 }
 
 fetchInventory();

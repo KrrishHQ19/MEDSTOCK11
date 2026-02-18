@@ -33,5 +33,10 @@
         "username": "krrish1234",
         "password": "krrish123",
         "role": "user"
+    },
+    {
+        "username": "ambikaroy",
+        "password": "abc123",
+        "role": "user"
     }
 ]

@@ -72,15 +72,6 @@
         "expiry": "2028-06-30"
     },
     {
-        "id": "9",
-        "name": "Adhesive Bandages",
-        "category": "Surgical Supplies",
-        "location": "Central Storage",
-        "qty": "500",
-        "reorder": "200",
-        "expiry": "2026-12-01"
-    },
-    {
         "id": "10",
         "name": "Adrenaline 1mg/ml",
         "category": "Medication - Injectable",
@@ -439,5 +430,14 @@
         "qty": "300",
         "reorder": "100",
         "expiry": "2028-12-01"
+    },
+    {
+        "name": "dolo250",
+        "category": "Medication - Oral",
+        "location": "ward A supply",
+        "qty": "500",
+        "reorder": "900",
+        "expiry": "2026-04-30",
+        "id": "1771441948268"
     }
 ]
